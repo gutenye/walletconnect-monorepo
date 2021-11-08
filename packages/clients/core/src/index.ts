@@ -30,7 +30,6 @@ import {
   parseTransactionData,
   convertArrayBufferToHex,
   convertHexToArrayBuffer,
-  getClientMeta,
   payloadId,
   uuid,
   formatRpcError,
@@ -118,7 +117,7 @@ class Connector implements IConnector {
   // -- constructor ----------------------------------------------------- //
 
   constructor(opts: IConnectorOpts) {
-    this._clientMeta = getClientMeta() || opts.connectorOpts.clientMeta || null;
+    this._clientMeta = opts.connectorOpts.clientMeta || null;
     this._cryptoLib = opts.cryptoLib;
     this._sessionStorage = opts.sessionStorage || new SessionStorage(opts.connectorOpts.storageId);
     this._qrcodeModal = opts.connectorOpts.qrcodeModal;
@@ -230,9 +229,6 @@ class Connector implements IConnector {
 
   get clientMeta() {
     let clientMeta: IClientMeta | null = this._clientMeta;
-    if (!clientMeta) {
-      clientMeta = this._clientMeta = getClientMeta();
-    }
     return clientMeta;
   }
 

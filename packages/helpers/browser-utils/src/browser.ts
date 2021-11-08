@@ -1,6 +1,5 @@
 import { IClientMeta } from "@walletconnect/types";
 
-import * as windowMetadata from "@walletconnect/window-metadata";
 import * as windowGetters from "@walletconnect/window-getters";
 import {
   detect,
@@ -74,7 +73,3 @@ export const getCrypto = windowGetters.getCrypto;
 export const getLocalStorageOrThrow = windowGetters.getLocalStorageOrThrow;
 
 export const getLocalStorage = windowGetters.getLocalStorage;
-
-export function getClientMeta(): IClientMeta | null {
-  return windowMetadata.getWindowMetadata();
-}

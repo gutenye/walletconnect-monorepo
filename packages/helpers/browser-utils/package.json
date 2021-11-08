@@ -32,7 +32,7 @@
   "types": "dist/esm/index.d.ts",
   "type": "module",
   "files": [
-    "dist"
+    "dist/esm/**/*.{js,ts}"
   ],
   "repository": {
     "type": "git",

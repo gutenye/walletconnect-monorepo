@@ -1,7 +1,7 @@
 import * as encoding from "@walletconnect/encoding";
 import * as jsonRpcUtils from "@walletconnect/jsonrpc-utils";
 import { IRpcConfig } from "@walletconnect/types";
-import { infuraNetworks } from "./constants";
+import { infuraNetworks } from "./constants.js";
 
 // -- hex -------------------------------------------------- //
 

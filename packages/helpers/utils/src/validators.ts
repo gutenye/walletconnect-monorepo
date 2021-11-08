@@ -7,7 +7,7 @@ import {
   IInternalEvent,
 } from "@walletconnect/types";
 
-import { signingMethods, reservedEvents } from "./constants";
+import { signingMethods, reservedEvents } from "./constants.js";
 
 export function isEmptyString(value: string): boolean {
   return value === "" || (typeof value === "string" && value.trim() === "");

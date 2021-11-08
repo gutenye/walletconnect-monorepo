@@ -60,10 +60,10 @@ import {
   ERROR_MISSING_REQUIRED,
   ERROR_QRCODE_MODAL_NOT_PROVIDED,
   ERROR_QRCODE_MODAL_USER_CLOSED,
-} from "./errors";
-import EventManager from "./events";
-import SessionStorage from "./storage";
-import { getBridgeUrl } from "./url";
+} from "./errors.js";
+import EventManager from "./events.js";
+import SessionStorage from "./storage.js";
+import { getBridgeUrl } from "./url.js";
 
 // -- Connector ------------------------------------------------------------ //
 

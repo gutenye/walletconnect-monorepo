@@ -1,6 +1,6 @@
 import { IMobileRegistryEntry, IMobileRegistry, IMobileLinkInfo } from "@walletconnect/types";
 
-import { setLocal } from "./local";
+import { setLocal } from "./local.js";
 
 export const mobileLinkChoiceKey = "WALLETCONNECT_DEEPLINK_CHOICE";
 

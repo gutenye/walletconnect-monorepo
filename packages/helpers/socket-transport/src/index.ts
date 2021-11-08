@@ -13,7 +13,7 @@ import {
   appendToQueryString,
 } from "@walletconnect/utils";
 
-import NetworkMonitor from "./network";
+import NetworkMonitor from "./network.js";
 
 // @ts-ignore
 const WS = typeof global.WebSocket !== "undefined" ? global.WebSocket : require("ws");

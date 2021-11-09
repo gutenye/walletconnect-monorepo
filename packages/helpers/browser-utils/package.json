@@ -63,7 +63,6 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "@walletconnect/safe-json": "1.0.0",
     "@walletconnect/types": "^1.7.0",
     "@walletconnect/window-getters": "1.0.0",
     "detect-browser": "5.2.0"

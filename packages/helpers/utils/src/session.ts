@@ -2,13 +2,8 @@ import {
   IParseURIResult,
   IRequiredParamsResult,
   IQueryParamsResult,
-  IWalletConnectSession,
 } from "@walletconnect/types";
 import { parseQueryString } from "./url.js";
-
-export function isWalletConnectSession(object: any): object is IWalletConnectSession {
-  return typeof object.bridge !== "undefined";
-}
 
 export function parseWalletConnectUri(str: string): IParseURIResult {
   const pathStart: number = str.indexOf(":");

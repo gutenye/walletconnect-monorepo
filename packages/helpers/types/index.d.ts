@@ -79,12 +79,6 @@ declare module "@walletconnect/types" {
     callback: () => void;
   }
 
-  export interface ISessionStorage {
-    getSession: () => IWalletConnectSession | null;
-    setSession: (session: IWalletConnectSession) => IWalletConnectSession;
-    removeSession: () => void;
-  }
-
   export interface IEncryptionPayload {
     data: string;
     hmac: string;
@@ -243,7 +237,6 @@ declare module "@walletconnect/types" {
     storageId?: string;
     signingMethods?: string[];
     session?: IWalletConnectSession;
-    storage?: ISessionStorage;
     clientMeta?: IClientMeta;
     qrcodeModal?: IQRCodeModal;
     qrcodeModalOptions?: IQRCodeModalOptions;
@@ -253,7 +246,6 @@ declare module "@walletconnect/types" {
     cryptoLib: ICryptoLib;
     connectorOpts: IWalletConnectOptions;
     transport?: ITransportLib;
-    sessionStorage?: ISessionStorage;
     pushServerOpts?: IPushServerOptions;
   }
 

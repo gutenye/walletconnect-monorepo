@@ -3,7 +3,6 @@ import {
   IConnectorOpts,
   ICryptoLib,
   ITransportLib,
-  ISessionStorage,
   IEncryptionPayload,
   ISocketMessage,
   ISessionStatus,
@@ -22,7 +21,6 @@ import {
   IQRCodeModal,
   IPushSubscription,
   IPushServerOptions,
-  IWalletConnectSession,
   IQRCodeModalOptions,
 } from "@walletconnect/types";
 import {
@@ -61,7 +59,6 @@ import {
   ERROR_QRCODE_MODAL_USER_CLOSED,
 } from "./errors.js";
 import EventManager from "./events.js";
-import SessionStorage from "./storage.js";
 import { getBridgeUrl } from "./url.js";
 
 // -- Connector ------------------------------------------------------------ //
@@ -103,7 +100,6 @@ class Connector implements IConnector {
   private _cryptoLib: ICryptoLib;
   private _transport: ITransportLib;
   private _eventManager: EventManager = new EventManager();
-  private _sessionStorage: ISessionStorage | undefined;
 
   // -- qrcodeModal ----------------------------------------------------- //
 
@@ -119,7 +115,6 @@ class Connector implements IConnector {
   constructor(opts: IConnectorOpts) {
     this._clientMeta = opts.connectorOpts.clientMeta || null;
     this._cryptoLib = opts.cryptoLib;
-    this._sessionStorage = opts.sessionStorage || new SessionStorage(opts.connectorOpts.storageId);
     this._qrcodeModal = opts.connectorOpts.qrcodeModal;
     this._qrcodeModalOptions = opts.connectorOpts.qrcodeModalOptions;
     this._signingMethods = [...signingMethods, ...(opts.connectorOpts.signingMethods || [])];
@@ -136,7 +131,7 @@ class Connector implements IConnector {
       this.uri = opts.connectorOpts.uri;
     }
 
-    const session = opts.connectorOpts.session || this._getStorageSession();
+    const session = opts.connectorOpts.session;
 
     if (session) {
       this.session = session;
@@ -512,7 +507,6 @@ class Connector implements IConnector {
     this._sendResponse(response);
 
     this._connected = true;
-    this._setStorageSession();
     this._eventManager.trigger({
       event: "connect",
       params: [
@@ -546,7 +540,6 @@ class Connector implements IConnector {
       event: "disconnect",
       params: [{ message }],
     });
-    this._removeStorageSession();
   }
 
   public updateSession(sessionStatus: ISessionStatus) {
@@ -583,8 +576,6 @@ class Connector implements IConnector {
         },
       ],
     });
-
-    this._manageStorageSession();
   }
 
   public async killSession(sessionError?: ISessionError) {
@@ -889,7 +880,6 @@ class Connector implements IConnector {
       event: "disconnect",
       params: [{ message }],
     });
-    this._removeStorageSession();
     this.transportClose();
   }
 
@@ -944,8 +934,6 @@ class Connector implements IConnector {
             ],
           });
         }
-
-        this._manageStorageSession();
       } else {
         this._handleSessionDisconnect(errorMsg);
       }
@@ -1181,36 +1169,6 @@ class Connector implements IConnector {
       return result;
     }
     return null;
-  }
-
-  // -- sessionStorage --------------------------------------------------------- //
-
-  private _getStorageSession() {
-    let result: IWalletConnectSession | null = null;
-    if (this._sessionStorage) {
-      result = this._sessionStorage.getSession();
-    }
-    return result;
-  }
-
-  private _setStorageSession() {
-    if (this._sessionStorage) {
-      this._sessionStorage.setSession(this.session);
-    }
-  }
-
-  private _removeStorageSession() {
-    if (this._sessionStorage) {
-      this._sessionStorage.removeSession();
-    }
-  }
-
-  private _manageStorageSession() {
-    if (this._connected) {
-      this._setStorageSession();
-    } else {
-      this._removeStorageSession();
-    }
   }
 
   // -- pushServer ------------------------------------------------------------- //

@@ -36,7 +36,6 @@ import {
   isJsonRpcResponseSuccess,
   isJsonRpcResponseError,
   isSilentPayload,
-  signingMethods,
 } from "@walletconnect/utils";
 import SocketTransport from "@walletconnect/socket-transport";
 import {
@@ -102,10 +101,6 @@ class Connector implements IConnector {
   private _qrcodeModal: IQRCodeModal | undefined;
   private _qrcodeModalOptions: IQRCodeModalOptions | undefined;
 
-  // -- methods ----------------------------------------------------------//
-
-  private readonly _signingMethods: string[];
-
   // -- constructor ----------------------------------------------------- //
 
   constructor(opts: IConnectorOpts) {
@@ -113,7 +108,6 @@ class Connector implements IConnector {
     this._cryptoLib = opts.cryptoLib;
     this._qrcodeModal = opts.connectorOpts.qrcodeModal;
     this._qrcodeModalOptions = opts.connectorOpts.qrcodeModalOptions;
-    this._signingMethods = [...signingMethods, ...(opts.connectorOpts.signingMethods || [])];
 
     if (!opts.connectorOpts.bridge && !opts.connectorOpts.uri && !opts.connectorOpts.session) {
       throw new Error(ERROR_MISSING_REQUIRED);

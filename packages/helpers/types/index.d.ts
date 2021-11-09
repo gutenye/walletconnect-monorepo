@@ -383,13 +383,6 @@ declare module "@walletconnect/types" {
     deepLink: string;
   }
 
-  export type IMobileRegistry = IMobileRegistryEntry[];
-
-  export interface IMobileLinkInfo {
-    name: string;
-    href: string;
-  }
-
   export interface IAppEntry {
     id: string;
     name: string;

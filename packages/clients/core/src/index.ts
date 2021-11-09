@@ -36,11 +36,7 @@ import {
   isJsonRpcResponseSuccess,
   isJsonRpcResponseError,
   isSilentPayload,
-  getLocal,
   signingMethods,
-  mobileLinkChoiceKey,
-  isMobile,
-  removeLocal,
 } from "@walletconnect/utils";
 import SocketTransport from "@walletconnect/socket-transport";
 import {
@@ -865,7 +861,6 @@ class Connector implements IConnector {
       if (this._qrcodeModal) {
         this._qrcodeModal.close();
       }
-      removeLocal(mobileLinkChoiceKey);
     }
     if (this._connected) {
       this._connected = false;
@@ -1035,13 +1030,6 @@ class Connector implements IConnector {
     });
 
     this.on("call_request_sent", (error, payload) => {
-      const { request } = payload.params[0];
-      if (isMobile() && this._signingMethods.includes(request.method)) {
-        const mobileLinkUrl = getLocal(mobileLinkChoiceKey);
-        if (mobileLinkUrl) {
-          window.location.href = mobileLinkUrl.href;
-        }
-      }
     });
 
     this.on("wc_sessionRequest", (error, payload) => {

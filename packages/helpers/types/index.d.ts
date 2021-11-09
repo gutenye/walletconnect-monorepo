@@ -371,9 +371,4 @@ declare module "@walletconnect/types" {
     mobileLinks?: string[];
     desktopLinks?: string[];
   }
-
-  export interface IRpcConfig {
-    infuraId: string | undefined;
-    custom: IRPCMap | undefined;
-  }
 }

@@ -22,13 +22,3 @@ export const signingMethods = [
   "eth_signTypedData_v4",
   "personal_sign",
 ];
-
-export const stateMethods = ["eth_accounts", "eth_chainId", "net_version"];
-
-export const infuraNetworks = {
-  1: "mainnet",
-  3: "ropsten",
-  4: "rinkeby",
-  5: "goerli",
-  42: "kovan",
-};

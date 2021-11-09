@@ -1,31 +1,6 @@
 import {
-  IJsonRpcResponseSuccess,
-  IJsonRpcResponseError,
   IJsonRpcErrorMessage,
 } from "@walletconnect/types";
-
-export function promisify(
-  originalFn: (...args: any[]) => void,
-  thisArg?: any,
-): (...callArgs: any[]) => Promise<IJsonRpcResponseSuccess | IJsonRpcResponseError> {
-  const promisifiedFunction = async (
-    ...callArgs: any[]
-  ): Promise<IJsonRpcResponseSuccess | IJsonRpcResponseError> => {
-    return new Promise((resolve, reject) => {
-      const callback = (
-        err: Error | null,
-        data: IJsonRpcResponseSuccess | IJsonRpcResponseError,
-      ) => {
-        if (err === null || typeof err === "undefined") {
-          reject(err);
-        }
-        resolve(data);
-      };
-      originalFn.apply(thisArg, [...callArgs, callback]);
-    });
-  };
-  return promisifiedFunction;
-}
 
 export function formatRpcError(
   error: Partial<IJsonRpcErrorMessage>,

@@ -20,6 +20,9 @@
   "license": "Apache-2.0",
   "main": "",
   "types": "index",
+  "files": [
+    "index.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/walletconnect/walletconnect-monorepo.git"

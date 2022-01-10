@@ -1,1 +1,1 @@
-declare module "@walletconnect/socket-transport"
+declare module "@exodus/walletconnect-socket-transport"

@@ -1,1 +1,1 @@
-declare module "@walletconnect/browser-utils";
+declare module "@exodus/walletconnect-browser-utils";

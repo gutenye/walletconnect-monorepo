@@ -1,5 +1,5 @@
-import * as encoding from "@walletconnect/encoding";
-import * as jsonRpcUtils from "@walletconnect/jsonrpc-utils";
+import * as encoding from "@exodus/walletconnect-encoding";
+import * as jsonRpcUtils from "@exodus/walletconnect-jsonrpc-utils";
 
 // -- hex -------------------------------------------------- //
 

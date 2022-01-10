@@ -22,7 +22,7 @@ import {
   IPushSubscription,
   IPushServerOptions,
   IQRCodeModalOptions,
-} from "@walletconnect/types";
+} from "@exodus/walletconnect-types";
 import {
   parsePersonalSign,
   parseTransactionData,
@@ -36,8 +36,8 @@ import {
   isJsonRpcResponseSuccess,
   isJsonRpcResponseError,
   isSilentPayload,
-} from "@walletconnect/utils";
-import SocketTransport from "@walletconnect/socket-transport";
+} from "@exodus/walletconnect-utils";
+import SocketTransport from "@exodus/walletconnect-socket-transport";
 import {
   ERROR_SESSION_CONNECTED,
   ERROR_SESSION_DISCONNECTED,

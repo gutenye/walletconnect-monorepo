@@ -2,7 +2,7 @@ import {
   IParseURIResult,
   IRequiredParamsResult,
   IQueryParamsResult,
-} from "@walletconnect/types";
+} from "@exodus/walletconnect-types";
 import { parseQueryString } from "./url.js";
 
 export function parseWalletConnectUri(str: string): IParseURIResult {

@@ -1,5 +1,5 @@
 import BN from "bn.js";
-import * as encoding from "@walletconnect/encoding";
+import * as encoding from "@exodus/walletconnect-encoding";
 
 // -- ArrayBuffer ------------------------------------------ //
 

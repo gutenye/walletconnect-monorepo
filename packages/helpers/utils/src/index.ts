@@ -1,4 +1,4 @@
-export * from "@walletconnect/browser-utils";
+export * from "@exodus/walletconnect-browser-utils";
 
 export * from "./constants.js";
 export * from "./encoding.js";

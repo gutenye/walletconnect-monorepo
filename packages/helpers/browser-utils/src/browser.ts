@@ -1,4 +1,4 @@
-import * as windowGetters from "@walletconnect/window-getters";
+import * as windowGetters from "@exodus/walletconnect-window-getters";
 import {
   detect,
   BrowserInfo,

@@ -1,6 +1,6 @@
 import {
   IJsonRpcErrorMessage,
-} from "@walletconnect/types";
+} from "@exodus/walletconnect-types";
 
 export function formatRpcError(
   error: Partial<IJsonRpcErrorMessage>,

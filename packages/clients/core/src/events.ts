@@ -4,14 +4,14 @@ import {
   isJsonRpcResponseError,
   isInternalEvent,
   isReservedEvent,
-} from "@walletconnect/utils";
+} from "@exodus/walletconnect-utils";
 import {
   IInternalEvent,
   IJsonRpcResponseSuccess,
   IJsonRpcResponseError,
   IJsonRpcRequest,
   IEventEmitter,
-} from "@walletconnect/types";
+} from "@exodus/walletconnect-types";
 
 // -- EventManager --------------------------------------------------------- //
 

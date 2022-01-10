@@ -1,7 +1,7 @@
 import { keccak_256 } from "js-sha3";
-import { removeHexPrefix, addHexPrefix } from "@walletconnect/encoding";
+import { removeHexPrefix, addHexPrefix } from "@exodus/walletconnect-encoding";
 
-import { ITxData } from "@walletconnect/types";
+import { ITxData } from "@exodus/walletconnect-types";
 import { convertUtf8ToHex, convertNumberToHex, convertUtf8ToBuffer } from "./encoding.js";
 import { sanitizeHex, removeHexLeadingZeros } from "./misc.js";
 import { isEmptyArray, isHexString, isEmptyString } from "./validators.js";

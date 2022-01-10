@@ -4,14 +4,14 @@ import {
   INetworkMonitor,
   ITransportLib,
   ISocketTransportOptions,
-} from "@walletconnect/types";
+} from "@exodus/walletconnect-types";
 import {
   isBrowser,
   getLocation,
   getQueryString,
   detectEnv,
   appendToQueryString,
-} from "@walletconnect/utils";
+} from "@exodus/walletconnect-utils";
 
 import NetworkMonitor from "./network.js";
 

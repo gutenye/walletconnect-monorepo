@@ -1,4 +1,4 @@
-declare module "@walletconnect/types" {
+declare module "@exodus/walletconnect-types" {
   export interface IConnector {
     bridge: string;
     key: string;

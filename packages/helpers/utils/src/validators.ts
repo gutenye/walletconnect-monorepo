@@ -1,11 +1,11 @@
-import * as encoding from "@walletconnect/encoding";
+import * as encoding from "@exodus/walletconnect-encoding";
 import {
   IJsonRpcSubscription,
   IJsonRpcRequest,
   IJsonRpcResponseSuccess,
   IJsonRpcResponseError,
   IInternalEvent,
-} from "@walletconnect/types";
+} from "@exodus/walletconnect-types";
 
 import { signingMethods, reservedEvents } from "./constants.js";
 

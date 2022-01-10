@@ -1,1 +1,1 @@
-declare module "@walletconnect/client"
+declare module "@exodus/walletconnect-client"

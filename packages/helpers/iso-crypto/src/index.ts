@@ -1,12 +1,12 @@
-import * as crypto from "@walletconnect/crypto";
-import * as encoding from "@walletconnect/encoding";
+import * as crypto from "@exodus/walletconnect-crypto";
+import * as encoding from "@exodus/walletconnect-encoding";
 import {
   IJsonRpcRequest,
   IJsonRpcResponseSuccess,
   IJsonRpcResponseError,
   IEncryptionPayload,
-} from "@walletconnect/types";
-import { convertArrayBufferToBuffer, convertBufferToArrayBuffer } from "@walletconnect/utils";
+} from "@exodus/walletconnect-types";
+import { convertArrayBufferToBuffer, convertBufferToArrayBuffer } from "@exodus/walletconnect-utils";
 
 export async function generateKey(length?: number): Promise<ArrayBuffer> {
   const _length = (length || 256) / 8;

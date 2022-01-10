@@ -1,5 +1,3 @@
-export * from "@exodus/walletconnect-browser-utils";
-
 export * from "./constants.js";
 export * from "./encoding.js";
 export * from "./ethereum.js";

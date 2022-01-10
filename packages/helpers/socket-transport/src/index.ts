@@ -6,10 +6,7 @@ import {
   ISocketTransportOptions,
 } from "@exodus/walletconnect-types";
 import {
-  isBrowser,
-  getLocation,
   getQueryString,
-  detectEnv,
   appendToQueryString,
 } from "@exodus/walletconnect-utils";
 
@@ -251,18 +248,11 @@ function getWebSocketUrl(_url: string, protocol: string, version: number): strin
     ? _url.replace("http", "ws")
     : _url;
   const splitUrl = url.split("?");
-  const params = isBrowser()
-    ? {
-        protocol,
-        version,
-        env: "browser",
-        host: getLocation()?.host || "",
-      }
-    : {
-        protocol,
-        version,
-        env: detectEnv()?.name || "",
-      };
+  const params = {
+    protocol,
+    version,
+    env: 'react-native', // NOTE: if we want to restore this, see git history
+  };
   const queryString = appendToQueryString(getQueryString(splitUrl[1] || ""), params);
   return splitUrl[0] + "?" + queryString;
 }

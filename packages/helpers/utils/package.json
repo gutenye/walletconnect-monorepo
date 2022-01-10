@@ -63,7 +63,6 @@
     "webpack-cli": "3.3.10"
   },
   "dependencies": {
-    "@exodus/walletconnect-browser-utils": "^1.7.0-exodus.0",
     "@exodus/walletconnect-encoding": "^1.0.0-exodus.0",
     "@exodus/walletconnect-jsonrpc-utils": "^1.0.0-exodus.0",
     "@exodus/walletconnect-types": "^1.7.0-exodus.0",
